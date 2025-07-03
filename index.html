@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GooGoo Gazette Newsletter Signup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- Reset & Base Styles --- */
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: 'Inter', sans-serif;
+      background-color: #F7F7F7;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* --- Signup Card --- */
+    .signup-card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      max-width: 600px;
+      width: 100%;
+      padding: 32px 40px;
+    }
+
+    /* --- Form & Fields --- */
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .form-label-note {
+      font-weight: 400;
+      color: #888;
+    }
+    .form-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #6A83F2;
+      box-shadow: 0 0 0 2px rgba(106, 131, 242, 0.5);
+    }
+    .required-indicator {
+      color: #6A83F2;
+    }
+
+    /* --- Radio & Checkbox --- */
+    .choice-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .choice-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .choice-input {
+      width: 1.15em;
+      height: 1.15em;
+      accent-color: #6A83F2;
+    }
+    .choice-input:focus {
+      outline: 2px solid #6A83F2;
+      outline-offset: 2px;
+    }
+    .choice-label {
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
+      cursor: pointer;
+    }
+    
+    /* --- Submit Button & Privacy --- */
+    .submit-button {
+      background-color: #FFB8A8;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      padding: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s, box-shadow 0.2s;
+      margin-top: 12px;
+    }
+    .submit-button:hover {
+      background-color: #ff9f8a;
+    }
+    .submit-button:focus {
+      outline: 2px solid #6A83F2;
+      outline-offset: 2px;
+    }
+    .privacy-note {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* --- Header --- */
+    .card-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin: 0 0 8px 0;
+    }
+    .card-subtitle {
+      font-size: 16px;
+      color: #666;
+      margin: 0;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+        background-color: #ffffff;
+      }
+      .signup-card {
+        max-width: 100%;
+        padding: 24px;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .card-title {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-card">
+    <header class="card-header">
+      <h1 class="card-title">Join GooGoo Gazette</h1>
+      <p class="card-subtitle">Your weekly dose of delightful baby wisdom.</p>
+    </header>
+    
+    <form class="signup-form" method="POST" action="https://forms.hubspot.com/uploads/form/v2/{{portal_id}}/{{form_guid}}">
+      
+      <input type="hidden" name="newsletter_name" value="GooGoo Gazette">
+
+      <div class="form-group">
+        <label for="childFirstName" class="form-label">Child’s First Name <span class="required-indicator" aria-hidden="true">*</span></label>
+        <input type="text" id="childFirstName" name="child_first_name" class="form-input" required aria-required="true">
+      </div>
+
+      <div class="form-group">
+        <label for="parentEmail" class="form-label">Parent/Guardian Email <span class="required-indicator" aria-hidden="true">*</span></label>
+        <input type="email" id="parentEmail" name="email" class="form-input" required aria-required="true" inputmode="email">
+      </div>
+      
+      <div class="form-group">
+        <label for="birthDate" class="form-label">Birth Date <span class="form-label-note">(leave blank if unborn)</span></label>
+        <input type="date" id="birthDate" name="birth_date" class="form-input" aria-describedby="birthDateNote">
+      </div>
+      
+      <div class="form-group">
+        <label for="dueDate" class="form-label">Due Date <span class="form-label-note">(leave blank if already born)</span></label>
+        <input type="date" id="dueDate" name="due_date" class="form-input" aria-describedby="dueDateNote">
+      </div>
+
+      <fieldset class="form-group">
+        <legend class="form-label">Child’s Sex</legend>
+        <div class="choice-group" role="radiogroup">
+          <div class="choice-item">
+            <input type="radio" id="sexFemale" name="child_sex" value="Female" class="choice-input">
+            <label for="sexFemale" class="choice-label">Female</label>
+          </div>
+          <div class="choice-item">
+            <input type="radio" id="sexMale" name="child_sex" value="Male" class="choice-input">
+            <label for="sexMale" class="choice-label">Male</label>
+          </div>
+          <div class="choice-item">
+            <input type="radio" id="sexPreferNot" name="child_sex" value="Prefer not to say" class="choice-input">
+            <label for="sexPreferNot" class="choice-label">Prefer not to say</label>
+          </div>
+        </div>
+      </fieldset>
+      
+      <fieldset class="form-group">
+        <legend class="form-label">Interest Areas <span class="form-label-note">(select all that apply)</span></legend>
+        <div class="choice-group">
+          <div class="choice-item">
+            <input type="checkbox" id="interestPreemie" name="interest_areas" value="Preemie Care" class="choice-input">
+            <label for="interestPreemie" class="choice-label">Preemie Care</label>
+          </div>
+          <div class="choice-item">
+            <input type="checkbox" id="interestFormula" name="interest_areas" value="Formula Feeding" class="choice-input">
+            <label for="interestFormula" class="choice-label">Formula Feeding</label>
+          </div>
+          <div class="choice-item">
+            <input type="checkbox" id="interestBreastfeeding" name="interest_areas" value="Breastfeeding" class="choice-input">
+            <label for="interestBreastfeeding" class="choice-label">Breastfeeding</label>
+          </div>
+          <div class="choice-item">
+            <input type="checkbox" id="interestSleep" name="interest_areas" value="Sleep Science & Schedules" class="choice-input">
+            <label for="interestSleep" class="choice-label">Sleep Science & Schedules</label>
+          </div>
+          <div class="choice-item">
+            <input type="checkbox" id="interestBrain" name="interest_areas" value="Brain Development" class="choice-input">
+            <label for="interestBrain" class="choice-label">Brain Development</label>
+          </div>
+          <div class="choice-item">
+            <input type="checkbox" id="interestParenting" name="interest_areas" value="Parenting Self-Care & Growth" class="choice-input">
+            <label for="interestParenting" class="choice-label">Parenting Self-Care & Growth</label>
+          </div>
+          <div class="choice-item">
+            <input type="checkbox" id="interestToddler" name="interest_areas" value="Toddler Behavior" class="choice-input">
+            <label for="interestToddler" class="choice-label">Toddler Behavior</label>
+          </div>
+          <div class="choice-item">
+            <input type="checkbox" id="interestGear" name="interest_areas" value="Gear & Product Reviews" class="choice-input">
+            <label for="interestGear" class="choice-label">Gear & Product Reviews</label>
+          </div>
+        </div>
+      </fieldset>
+      
+      <button type="submit" class="submit-button">Subscribe Now</button>
+      <p class="privacy-note">We’ll use your info only to send GooGoo Gazette emails.</p>
+
+    </form>
+  </div>
+
+</body>
+</html>
